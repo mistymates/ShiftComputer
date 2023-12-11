@@ -13,6 +13,6 @@ public class GPU extends Part {
     @Override
     public void displayDetails() {
         super.displayDetails();
-        System.out.println("VRAM: " + vram + "GB");
+        System.out.println("VRAM: " + vram + "GB.");
     }
 }

@@ -13,6 +13,6 @@ public class CPU extends Part {
     @Override
     public void displayDetails() {
         super.displayDetails();
-        System.out.println("Cores: " + core);
+        System.out.println("Cores: " + core +" Cores");
     }
 }

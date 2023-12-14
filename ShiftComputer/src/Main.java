@@ -36,7 +36,7 @@ public class Main {
                     exit = true;
                     break;
                 default:
-                    System.out.println("Pilihan tidak valid. Silakan coba lagi.");
+                    System.out.println("Pilihan tidak valid.");
             }
         }
         scanner.close();

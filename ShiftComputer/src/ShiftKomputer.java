@@ -22,7 +22,7 @@ public class ShiftKomputer {
         System.out.println("7. CASE");
         System.out.println("8. EXIT");
         Part[] parts = this.store.getParts();
-        System.out.print("Pilih part yang ingin dibeli: ");
+        System.out.print("Pilih part yang ingin dibeli: (Masukkan Angka)");
         int menu = scanner.nextInt();
 
         switch (menu) {

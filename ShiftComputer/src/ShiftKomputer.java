@@ -17,12 +17,13 @@ public class ShiftKomputer {
         System.out.println("2. CPU");
         System.out.println("3. POWER SUPPLY");
         System.out.println("4. MOTHERBOARD");
-        System.out.println("5. RA");
+        System.out.println("5. RAM");
         System.out.println("6. STORAGE");
         System.out.println("7. CASE");
         System.out.println("8. EXIT");
         Part[] parts = this.store.getParts();
         System.out.print("Pilih part yang ingin dibeli:");
+        System.out.println("");
         int menu = scanner.nextInt();
 
         switch (menu) {

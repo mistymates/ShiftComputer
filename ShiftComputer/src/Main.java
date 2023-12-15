@@ -15,7 +15,6 @@ public class Main {
             System.out.println("5. Cart");
             System.out.println("6. Exit");
             System.out.print("Pilih menu: ");
-            System.out.println("");
             int menu = scanner.nextInt();
             switch (menu) {
                 case 1:

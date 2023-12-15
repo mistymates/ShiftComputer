@@ -39,7 +39,6 @@ public class ShiftKomputer {
                 int gpuMenu = scanner.nextInt();
                 
                 if (gpuMenu >= 1 && gpuMenu <= parts.length) {
-                    // Assuming GPU index is gpuMenu - 1
                     Part selectedGPU = parts[gpuMenu - 1];
                     cart.addPart(selectedGPU);
                     System.out.println("GPU " + selectedGPU.getName() + " telah ditambahkan ke Cart.");
@@ -48,11 +47,8 @@ public class ShiftKomputer {
                 }
                 break;
             case 2:
-                // Add code for other parts (CPU, POWER SUPPLY, etc.) as needed
                 break;
-            // ... Add cases for other parts
             case 8:
-                // EXIT
                 break;
             default:
                 System.out.println("Pilihan tidak valid. Silahkan coba lagi");

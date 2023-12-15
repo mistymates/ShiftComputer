@@ -45,6 +45,23 @@ public class ShiftKomputer {
                 } else {
                     System.out.println("Pilihan GPU tidak valid.");
                 }
+                System.out.println("===Daftar GPU===");
+                for (Part part : parts) {
+                    if (part instanceof GPU) {
+                        part.displayDetails();
+                    }
+                }
+                
+                System.out.print("Pilih CPU yang ingin dibeli (1-" + parts.length + "): ");
+                int cpuMenu = scanner.nextInt();
+                
+                if (cpuMenu >= 1 && cpuMenu <= parts.length) {
+                    Part selectedCPU = parts[cpuMenu - 1];
+                    cart.addPart(selectedCPU);
+                    System.out.println("CPU " + selectedCPU.getName() + " telah ditambahkan ke Cart.");
+                } else {
+                    System.out.println("Pilihan CPU tidak valid.");
+                }
                 break;
             case 2:
                 break;

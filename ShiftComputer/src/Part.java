@@ -18,6 +18,6 @@ class Part {
     }
 
     public void displayDetails() {
-        System.out.println(name + " (Rp. " + price + ")");
+        System.out.print(name + "(Rp. " + price + ")");
     }
 }

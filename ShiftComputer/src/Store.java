@@ -13,6 +13,10 @@ public class Store {
         parts[3] = new CPU("Intel Core i9-10900K", 6000000, 10);
         parts[4] = new CPU("AMD Ryzen 9 5900X", 5500000, 12);
         parts[5] = new CPU("Intel Core i7-10700K", 6500000, 8);
+        parts[6] = new RAM("Corsair Vengeance LPX 16GB", 1000000, 16);
+        parts[7] = new RAM("G.Skill Trident Z Neo 32GB", 2000000, 32);
+        parts[8] = new RAM("Corsair Vengeance RGB Pro 32GB", 1500000, 32);
+
     }
 
     public Part[] getParts() {

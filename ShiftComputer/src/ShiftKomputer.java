@@ -51,20 +51,34 @@ public class ShiftKomputer {
                         part.displayDetails();
                     }
                 }
+                break;
+            case 2:
+                System.out.println("===Daftar CPU===");
+                for (Part part : parts) {
+                    if (part instanceof CPU) {
+                        part.displayDetails();
+                    }
+                }
                 
                 System.out.print("Pilih CPU yang ingin dibeli (1-" + parts.length + "): ");
                 int cpuMenu = scanner.nextInt();
                 
                 if (cpuMenu >= 1 && cpuMenu <= parts.length) {
-                    Part selectedCPU = parts[cpuMenu - 1];
-                    cart.addPart(selectedCPU);
-                    System.out.println("CPU " + selectedCPU.getName() + " telah ditambahkan ke Cart.");
+                    Part selectedGPU = parts[cpuMenu - 1];
+                    cart.addPart(selectedGPU);
+                    System.out.println("CPU " + selectedGPU.getName() + " telah ditambahkan ke Cart.");
                 } else {
                     System.out.println("Pilihan CPU tidak valid.");
                 }
+                System.out.println("===Daftar CPU===");
+                for (Part part : parts) {
+                    if (part instanceof CPU) {
+                        part.displayDetails();
                 break;
-            case 2:
-                break;
+                    }
+                }
+            case 3:
+            break;
             case 8:
                 break;
             default:

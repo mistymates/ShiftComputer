@@ -10,10 +10,9 @@ public class Main {
             System.out.println("===Selamat datang di ShiftComputer===");
             System.out.println("1. Beli Part");
             System.out.println("2. Bandingkan Part");
-            System.out.println("3. Rakit Computer");
-            System.out.println("4. Beli Computer");
-            System.out.println("5. Cart");
-            System.out.println("6. Exit");
+            System.out.println("3. Beli Computer");
+            System.out.println("4. Cart");
+            System.out.println("5. Exit");
             System.out.print("Pilih menu: ");
 
             int menu = scanner.nextInt();
@@ -25,15 +24,12 @@ public class Main {
                     shiftKomputer.comparePart();
                     break;
                 case 3:
-                    shiftKomputer.buildComputer();
-                    break;
-                case 4:
                     shiftKomputer.buyComputer();
                     break;
-                case 5:
+                case 4:
                     shiftKomputer.viewCart();
                     break;
-                case 6:
+                case 5:
                     exit = true;
                     break;
                 default:

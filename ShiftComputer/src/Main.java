@@ -1,4 +1,3 @@
-// File Main.java
 import java.util.Scanner;
 
 public class Main {
@@ -7,13 +6,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         boolean exit = false;
         while (!exit) {
-            System.out.println("===Selamat datang di ShiftComputer===");
-            System.out.println("1. Beli Part");
-            System.out.println("2. Bandingkan Part");
-            System.out.println("3. Beli Computer");
-            System.out.println("4. Cart");
-            System.out.println("5. Exit");
-            System.out.print("Pilih menu: ");
+            System.out.println("        \n===Selamat datang di ShiftComputer===");
+            System.out.println("        1. Beli Part");
+            System.out.println("        2. Cart");
+            System.out.println("        3. Exit");
+            System.out.print("      Pilih menu: ");
 
             int menu = scanner.nextInt();
             switch (menu) {
@@ -21,15 +18,12 @@ public class Main {
                     shiftKomputer.buyPart();
                     break;
                 case 2:
-                    shiftKomputer.comparePart();
-                    break;
-                case 3:
-                    shiftKomputer.buyComputer();
-                    break;
-                case 4:
                     shiftKomputer.viewCart();
                     break;
-                case 5:
+                case 3:
+                    System.out.print("""
+                        Terimakasih telah menggunakan aplikasi ShiftComputer
+                                    Sampai jumpa lagi!""");
                     exit = true;
                     break;
                 default:

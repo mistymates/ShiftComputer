@@ -1,5 +1,3 @@
-import java.util.*;
-
 class Part {
     protected String name;
     protected int price;

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.List;
 
 public class ShiftKomputer {
     private Store store;
@@ -12,89 +13,132 @@ public class ShiftKomputer {
     }
 
     public void buyPart() {
-        System.out.println("===Daftar Part===");
-        System.out.println("1. GPU");
-        System.out.println("2. CPU");
-        System.out.println("3. POWER SUPPLY");
-        System.out.println("4. MOTHERBOARD");
-        System.out.println("5. RAM");
-        System.out.println("6. STORAGE");
-        System.out.println("7. CASE");
-        System.out.println("8. EXIT");
+        while (true) {
+            System.out.println("\n=====Daftar Part=====");
+            System.out.println("    1. GPU");
+            System.out.println("    2. CPU");
+            System.out.println("    3. POWER SUPPLY");
+            System.out.println("    4. MOTHERBOARD");
+            System.out.println("    5. RAM");
+            System.out.println("    6. STORAGE");
+            System.out.println("    7. CASE");
+            System.out.println("    8. EXIT");
+            System.out.print("Pilih part yang ingin dibeli (1-8): ");
     
-        Part[] parts = this.store.getParts();
-        System.out.print("Pilih part yang ingin dibeli: ");
-        int menu = scanner.nextInt();
+            Part selectedPart = null;
+            List<? extends Part> partList = null;
     
-        switch (menu) {
-            case 1:
-                System.out.println("===Daftar GPU===");
-                for (Part part : parts) {
-                    if (part instanceof GPU) {
-                        part.displayDetails();
-                    }
-                }
-                
-                System.out.print("Pilih GPU yang ingin dibeli (1-" + parts.length + "): ");
-                int gpuMenu = scanner.nextInt();
-                
-                if (gpuMenu >= 1 && gpuMenu <= parts.length) {
-                    Part selectedGPU = parts[gpuMenu - 1];
-                    cart.addPart(selectedGPU);
-                    System.out.println("GPU " + selectedGPU.getName() + " telah ditambahkan ke Cart.");
-                } else {
-                    System.out.println("Pilihan GPU tidak valid.");
-                }
-                System.out.println("===Daftar GPU===");
-                for (Part part : parts) {
-                    if (part instanceof GPU) {
-                        part.displayDetails();
-                    }
-                }
-                break;
-            case 2:
-                System.out.println("===Daftar CPU===");
-                for (Part part : parts) {
-                    if (part instanceof CPU) {
-                        part.displayDetails();
-                    }
-                }
-                
-                System.out.print("Pilih CPU yang ingin dibeli (1-" + parts.length + "): ");
-                int cpuMenu = scanner.nextInt();
-                
-                if (cpuMenu >= 1 && cpuMenu <= parts.length) {
-                    Part selectedGPU = parts[cpuMenu - 1];
-                    cart.addPart(selectedGPU);
-                    System.out.println("CPU " + selectedGPU.getName() + " telah ditambahkan ke Cart.");
-                } else {
-                    System.out.println("Pilihan CPU tidak valid.");
-                }
-                System.out.println("===Daftar CPU===");
-                for (Part part : parts) {
-                    if (part instanceof CPU) {
-                        part.displayDetails();
-                break;
-                    }
-                }
-            case 3:
-            break;
-            case 8:
-                break;
-            default:
-                System.out.println("Pilihan tidak valid. Silahkan coba lagi");
+            int menu = scanner.nextInt();
+    
+            switch (menu) {
+                case 1:
+                    partList = store.getGPUs();
+                    break;
+                case 2:
+                    partList = store.getCPUs();
+                    break;
+                case 3:
+                    partList = store.getPowerSupplies();
+                    break;
+                case 4:
+                    partList = store.getMotherboards();
+                    break;
+                case 5:
+                    partList = store.getRAMs();
+                    break;
+                case 6:
+                    partList = store.getStorages();
+                    break;
+                case 7:
+                    partList = store.getCases();
+                    break;
+                case 8:
+                    return;
+                default:
+                    System.out.println("Pilihan tidak valid. Silahkan coba lagi");
+                    continue; 
+            }
+    
+            System.out.println("===Daftar Part===");
+            int index = 1;
+            for (Part part : partList) {
+                System.out.println(index + ". " + part.getClass().getSimpleName() + ": " + part.getName());
+                index++;
+            }
+    
+            System.out.print("Pilih part yang ingin dibeli (1-" + partList.size() + "): ");
+            int partMenu = scanner.nextInt();
+    
+            if (partMenu >= 1 && partMenu <= partList.size()) {
+                selectedPart = partList.get(partMenu - 1);
+                cart.addPart(selectedPart);
+                System.out.println(selectedPart.getClass().getSimpleName() + " " + selectedPart.getName() + " telah ditambahkan ke Cart.");
+            } else {
+                System.out.println("Pilihan part tidak valid.");
+            }
+    
+            System.out.print("Apakah Anda ingin membeli part lainnya? (ya/tidak): ");
+            String response = scanner.next();
+            if (!response.equalsIgnoreCase("ya")) {
+                break; 
+            }
         }
     }
 
-    public void comparePart() {
-    }
-
-    public void buildComputer() {
-    }
-
-    public void buyComputer() {
-    }
-
     public void viewCart() {
+        Scanner scanner = new Scanner(System.in);
+
+        while(true){
+            System.out.println("\nCart Menu: ");
+            System.out.println("1.View Cart");
+            System.out.println("2.Checkout");
+            System.out.println("3.Clear Cart");
+            System.out.println("4.Exit");
+            System.out.println("Pilihlah Menu: ");
+            int pilih = scanner.nextInt();
+
+            switch (pilih) {
+                case 1:
+                displayCart();
+                break;
+                case 2:
+                Checkout();
+                break;
+                case 3:
+                clearCart();
+                break;
+                case 4:
+                return;
+            }
+        }
     }
+
+    public void displayCart(){
+    System.out.println("=== Cart ===");
+    Part[] cartItems = cart.getParts();
+
+    if (cartItems.length == 0) {
+        System.out.println("Cart is empty.");
+    } else {
+        for (Part part : cartItems) {
+            if (part != null) {
+                part.displayDetails();
+            }
+        }
+    }
+    }
+
+    public void clearCart(){
+    cart.clearCart();
+
 }
+
+public void Checkout() {
+    System.out.println("=== Checkout ===");
+    displayCart(); 
+    double totalPrice = cart.calculateTotalPrice();
+    System.out.println("Total Price: Rp" + totalPrice);
+    System.out.println("Thank you for shopping!");
+    clearCart(); 
+}
+    }
